@@ -29,3 +29,8 @@ app.post('/tareas', (req, res) => {
 app.listen(3000, () => {
     console.log("Servidor corriendo en puerto 3000");
 });
+
+app.put('/tareas/completar-todas', (req, res) => {
+   tareas.forEach(t => t.completado = true);
+   res.json(tareas);
+});
