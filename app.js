@@ -13,7 +13,7 @@ app.get('/tareas', (req, res) => {
 // POST
 app.post('/tareas', (req, res) => {
     const tarea = {
-        id: tareas.length + 1,
+        id: Date.now(),
         nombre: req.body.nombre,
         completado: false
     };
