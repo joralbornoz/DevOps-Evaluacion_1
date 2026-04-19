@@ -10,6 +10,11 @@ app.get('/tareas', (req, res) => {
     res.json(tareas);
 });
 
+app.get('/tareas/completadas', (req, res) => {
+   const completadas = tareas.filter(t => t.completado);
+   res.json(completadas);
+});
+
 // POST
 app.post('/tareas', (req, res) => {
     const tarea = {
