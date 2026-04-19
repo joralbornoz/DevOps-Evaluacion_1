@@ -10,6 +10,11 @@ app.get('/tareas', (req, res) => {
     res.json(tareas);
 });
 
+app.get('/tareas/completadas', (req, res) => {
+   const completadas = tareas.filter(t => t.completado);
+   res.json(completadas);
+});
+
 // POST
 app.post('/tareas', (req, res) => {
     const tarea = {
@@ -23,4 +28,9 @@ app.post('/tareas', (req, res) => {
 
 app.listen(3000, () => {
     console.log("Servidor corriendo en puerto 3000");
+});
+
+app.put('/tareas/completar-todas', (req, res) => {
+   tareas.forEach(t => t.completado = true);
+   res.json(tareas);
 });
